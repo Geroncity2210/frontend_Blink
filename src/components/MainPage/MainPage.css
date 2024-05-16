@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.background {
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(to bottom, #76ab39, #044766);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Main {
+  background-color: #273035;
+  border-radius: 20px;
+  width: 70%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.options {
+  .logo-image {
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    border-radius: 50%;
+  }
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+button {
+  background-color: #088dcb;
+  font-size: 24px;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8.62px;
+  color: white;
+  cursor: pointer;
+  &:hover {
+    background-color: #44bff8;
+  }
+}
