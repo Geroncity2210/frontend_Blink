@@ -6,11 +6,14 @@ import './LoginPage.css';
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [message, setMessage] = useState(null);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const handleLogin = async () => {
     if (!email || !password) {
-      alert('Por favor, completa todos los campos');
+      setError('Por favor, completa todos los campos');
+      setMessage(null);
       return;
     }
     try {
@@ -18,13 +21,19 @@ const LoginPage = () => {
         email,
         password,
       });
-      console.log(response.data);
-      // Aquí podrías guardar el token de sesión en el localStorage o en una cookie
-      // Redireccionar a la página principal u otra página después del inicio de sesión
-      alert('Inicio de sesion exitoso');
-      navigate('/');
+      setMessage(response.data.message);
+      setError(null);
+      setTimeout(() => {
+        navigate('/');
+      }, 2000); // Esperar 2 segundos antes de navegar
     } catch (error) {
       console.error('Error durante el inicio de sesión:', error);
+      setMessage(null);
+      if (error.response && error.response.data && error.response.data.message) {
+        setError(error.response.data.message);
+      } else {
+        setError('Error durante el inicio de sesión');
+      }
     }
   };
 
@@ -45,6 +54,8 @@ const LoginPage = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button onClick={handleLogin}>Iniciar Sesión</button>
+          {message && <div className="success-message">{message}</div>}
+          {error && <div className="error-message">{error}</div>}
         </div>
         <div className="logo-image"></div>
       </div>
@@ -53,4 +64,5 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+
 
