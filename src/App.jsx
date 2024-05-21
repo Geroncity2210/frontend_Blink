@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { MainPage, LoginPage, SignUpPage } from "./Pages";
-import { Blink } from "./components/Blink";
-import "./App.css";
+import { Homepage } from "./Pages/HomePage/Homepage";
+import { CreateBlink } from "./Pages/CreateBlink/CreateBlink";
+import { Myprofile } from "./Pages/Myprofile/Myprofile";
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/signin" element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/home" element={<Homepage />} />
+        <Route path="/create" element={<CreateBlink />} />
+        <Route path="/profile" element={<Myprofile />} />
       </Routes>
     </Router>
   );

@@ -1,18 +1,24 @@
 import React from "react";
+import "./CreateBlink.css";
 
 export const CreateBlink = () => {
   return (
     <>
-      <div className="Navbar">
-        <h1>Blinke</h1>
-        <div className="buttons">
-          <button className="btn_SignOut">Cerrar sesión</button>
+      <div className="blinkCreator">
+        <div className="Navbar">
+          <h1>Blinke</h1>
+          <div className="buttons">
+            <button className="btn_SignOut">Cerrar sesión</button>
+          </div>
         </div>
-      </div>
 
-      <div className="CreateBlink">
-        <input type="text" placeholder="Expresa tus ideas aquí" />
-        <button className="btn_blink">Blink!</button>
+        <div className="CreateBlink">
+          <h2>Crear Blink</h2>
+          <div className="text">
+            <input type="text" placeholder="Expresa tus ideas aquí" required />
+            <button className="btn_blink">Blink!</button>
+          </div>
+        </div>
       </div>
     </>
   );

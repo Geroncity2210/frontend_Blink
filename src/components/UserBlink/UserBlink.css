@@ -10,8 +10,8 @@
   border-radius: 30px;
   display: flex;
   flex-direction: column;
-  max-width: 500px;
-  min-height: auto;
+  width: auto;
+  height: auto;
   padding: 2rem;
   color: white;
   gap: 1.2rem;
@@ -22,15 +22,30 @@
   background-color: white;
   border-radius: 50%;
 }
-
+.user {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+}
 .user_data {
   display: flex;
   gap: 1.2rem;
   font-size: 23px;
   align-items: center;
+  justify-content: space-between;
   font-weight: 800;
 }
 
 .message_container {
   font-size: 16px;
+}
+
+.editOptions {
+  display: flex;
+  gap: 0.2rem;
+}
+img {
+  width: 30px;
+  fill: white;
+  cursor: pointer;
 }

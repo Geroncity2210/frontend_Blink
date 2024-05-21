@@ -2,25 +2,27 @@ import React from "react";
 import "./UserBlink.css";
 import PropTypes from "prop-types";
 
-export const Blink = ({ User_name, blink_message }) => {
+const UserBlink = ({ user, message }) => {
   return (
     <div className="Blink_container">
       <div className="user_data">
-        <div className="userData">
+        <div className="user">
           <div className="user_image"></div>
-          <h4>{User_name}</h4>
+          <h4>{user}</h4>
         </div>
         <div className="editOptions">
-          <button id="edit" />
-          <button id="remove" />
+          <img src="src\assets\edit icon.svg" alt="Modify" />
+          <img src="src\assets\Remove.svg" alt="Erase" />
         </div>
       </div>
-      <div className="message_container">{blink_message}</div>
+      <div className="message_container">{message}</div>
     </div>
   );
 };
 
-Blink.PropTypes = {
-  User_name: PropTypes.string.isRequired,
-  blink_message: PropTypes.string.isRequired,
+UserBlink.PropTypes = {
+  user: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
 };
+
+export default UserBlink;

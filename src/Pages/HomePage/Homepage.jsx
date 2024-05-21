@@ -1,20 +1,23 @@
-import React from "react";
+import Blink from "../../components/Blink/Blink";
 
+import "./HomePage.css";
 export const Homepage = () => {
   return (
     <>
-      <div className="Navbar">
-        <h1>Blinke</h1>
-        <div className="buttons">
-          <button className="btn_SignOut">Cerrar sesión</button>
-          <button className="btn_search"></button>
+      <div className="HomePage">
+        <div className="Navbar">
+          <h1>Blinke</h1>
+          <div className="buttons">
+            <button className="btn_search">Search</button>
+            <button id="btn_SignOut">Cerrar sesión</button>
+          </div>
         </div>
+        <div className="Nav_create">
+          <h2 id="feed-title">Tu Feed</h2>
+          <button id="btn_create">Create Blink</button>
+        </div>
+        <div className="Blinks_container"></div>
       </div>
-      <div className="Nav_create">
-        <h2 id="feed-title">Tu Feed</h2>
-        <button id="btn_create"></button>
-      </div>
-      <div className="Blinks_container"></div>
     </>
   );
 };
