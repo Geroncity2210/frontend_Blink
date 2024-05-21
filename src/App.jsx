@@ -1,13 +1,18 @@
-import { MainPage } from "./components/MainPage/MainPage";
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { MainPage, LoginPage, SignUpPage } from "./Pages";
+import { Blink } from "./components/Blink";
 import "./App.css";
-import { LoginPage } from "./components/LoginPage/LoginPage";
-import { SignUpPage } from "./components/SignUpPage/SignUpPage";
 
 function App() {
   return (
-    <>
-      <LoginPage />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/signin" element={<SignUpPage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+    </Router>
   );
 }
 
