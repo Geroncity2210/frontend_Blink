@@ -43,6 +43,10 @@ const MyProfile = () => {
     navigate('/');
   };
 
+  const llevarACreate = () => {
+    navigate('/create');
+  };
+
   return (
     <div className="MyProfile">
       <div className="ProfileViewer">
@@ -54,7 +58,7 @@ const MyProfile = () => {
         </div>
         <div className="Nav_create">
           <h2 className="title">Tu perfil</h2>
-          <button id="btn_create">Crear Blink</button>
+          <button id="btn_create" onClick={llevarACreate}>Crear Blink</button>
         </div>
 
         <div className="profile">
