@@ -53,6 +53,10 @@ const MyProfile = () => {
     navigate('/home');
   };
 
+  const llevarASearch = () => {
+    navigate('/search');
+  };
+
 
   return (
     <div className="MyProfile">
@@ -60,6 +64,7 @@ const MyProfile = () => {
         <div className="Navbar">
           <h1>Blinke</h1>
           <div className="buttons">
+          <button className="btn_search" onClick={llevarASearch}>Search</button>
             <button className="btn_HomeFeed" onClick={llevarAHome}>Home</button>
             <button className="btn_SignOut" onClick={handleSignOut}>Cerrar sesión</button>
           </div>

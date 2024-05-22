@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .SearchPage {
+    font-family: sans-serif;
+    color: white;
+    background-color: #273035;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .Navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    border-bottom: 2px solid white;
+  }
+  .Nav_create {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .btn_searchFuncional{
+    background-color:blueviolet;
+  }
+  
+
+
+  #btn_create {
+    background-color: #044766;
+  }
+  #btn_SignOut {
+    background-color: #436221;
+  }
+  button {
+    font-size: 14px;
+  }
+  
+  .Blinks_container {
+    display: grid;
+    overflow-y: auto; /* Agregar desbordamiento vertical */
+    max-height: calc(100vh - 200px); /* Altura máxima del contenedor para evitar que ocupe toda la página */
+    margin: 1rem;
+    gap: 1rem;
+    width: auto;
+    height: auto;
+  }

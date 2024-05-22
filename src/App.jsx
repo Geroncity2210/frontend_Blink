@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { MainPage, LoginPage, SignUpPage, Homepage, CreateBlink, Myprofile } from "./Pages";
+import { MainPage, LoginPage, SignUpPage, Homepage, CreateBlink, Myprofile, SearchPage } from "./Pages";
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
         <Route path="/home" element={<Homepage />} />
         <Route path="/create" element={<CreateBlink />} />
         <Route path="/profile" element={<Myprofile />} />
+        <Route path="/search" element={<SearchPage/>} />
       </Routes>
     </Router>
   );

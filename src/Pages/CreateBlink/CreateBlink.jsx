@@ -68,12 +68,17 @@ const CreateBlink = () => {
     navigate('/profile');
   };
 
+  const llevarASearch = () => {
+    navigate('/search');
+  };
+
   return (
     <>
       <div className="blinkCreator">
         <div className="Navbar">
           <h1>Blinke</h1>
           <div className="buttons">
+            <button className="btn_search" onClick={llevarASearch}>Search</button>
             <button className="btn_HomeFeed" onClick={llevarAHome}>Home</button>
             <button className="btn_Profile" onClick={llevarAProfile} >Profile</button>
             <button className="btn_SignOut" onClick={handleSignOut}>Cerrar sesión</button>
