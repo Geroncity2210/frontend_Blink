@@ -45,12 +45,17 @@ const HomePage = () => {
     getBlinks();
   }, []);
 
+  const llevarAProfile = () => {
+    navigate('/profile');
+  };
+
   return (
     <div className="HomePage">
       <div className="Navbar">
         <h1>Blinke</h1>
         <div className="buttons">
           <button className="btn_search">Search</button>
+          <button className="btn_Profile" onClick={llevarAProfile} >Profile</button>
           <button id="btn_SignOut" onClick={handleSignOut}>Cerrar sesión</button>
         </div>
       </div>

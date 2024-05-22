@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import Notification from '../../components/Notification/Notification';
 import "./CreateBlink.css";
 
@@ -7,6 +8,7 @@ const CreateBlink = () => {
   const [blinkContent, setBlinkContent] = useState('');
   const [notificationMessage, setNotificationMessage] = useState(null);
   const [notificationType, setNotificationType] = useState(null);
+  const navigate = useNavigate();
 
   const handleBlinkCreation = async () => {
     try {
@@ -51,13 +53,30 @@ const CreateBlink = () => {
     }
   };
 
+   // Función para manejar el clic en el botón de Cerrar sesión
+   const handleSignOut = () => {
+    localStorage.removeItem('username');
+    localStorage.removeItem('token');
+    navigate('/');
+  };
+
+  const llevarAHome = () => {
+    navigate('/home');
+  };
+
+  const llevarAProfile = () => {
+    navigate('/profile');
+  };
+
   return (
     <>
       <div className="blinkCreator">
         <div className="Navbar">
           <h1>Blinke</h1>
           <div className="buttons">
-            <button className="btn_SignOut">Cerrar sesión</button>
+            <button className="btn_HomeFeed" onClick={llevarAHome}>Home</button>
+            <button className="btn_Profile" onClick={llevarAProfile} >Profile</button>
+            <button className="btn_SignOut" onClick={handleSignOut}>Cerrar sesión</button>
           </div>
         </div>
 

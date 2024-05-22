@@ -47,12 +47,17 @@ const MyProfile = () => {
     navigate('/create');
   };
 
+  const llevarAHome = () => {
+    navigate('/home');
+  };
+
   return (
     <div className="MyProfile">
       <div className="ProfileViewer">
         <div className="Navbar">
           <h1>Blinke</h1>
           <div className="buttons">
+            <button className="btn_HomeFeed" onClick={llevarAHome}>Home</button>
             <button className="btn_SignOut" onClick={handleSignOut}>Cerrar sesión</button>
           </div>
         </div>
