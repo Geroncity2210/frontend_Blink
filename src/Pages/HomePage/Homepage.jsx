@@ -36,6 +36,10 @@ const HomePage = () => {
     navigate('/');
   };
 
+  const llevarACreate = () => {
+    navigate('/create');
+  };
+
   // Efecto para obtener los blinks cuando el componente se monta
   useEffect(() => {
     getBlinks();
@@ -52,7 +56,7 @@ const HomePage = () => {
       </div>
       <div className="Nav_create">
         <h2 id="feed-title">Tu Feed</h2>
-        <button id="btn_create">Create Blink</button>
+        <button id="btn_create" onClick={llevarACreate}>Create Blink</button>
       </div>
       <div className="Blinks_container">
         <Notification

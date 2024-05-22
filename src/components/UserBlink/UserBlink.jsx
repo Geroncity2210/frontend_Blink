@@ -20,7 +20,7 @@ const UserBlink = ({ user, message }) => {
   );
 };
 
-UserBlink.PropTypes = {
+UserBlink.propTypes = {
   user: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
 };
