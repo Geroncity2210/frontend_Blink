@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./UserBlink.css";
 import PropTypes from "prop-types";
 import axios from "axios";
 
 const UserBlink = ({ user, message, blinkId, reloadBlinks }) => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedMessage, setEditedMessage] = useState(message);
+
   const handleDelete = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -15,11 +18,25 @@ const UserBlink = ({ user, message, blinkId, reloadBlinks }) => {
     }
   };
 
-  
-
   const handleEdit = async () => {
-    // Aquí puedes implementar la lógica para editar el blink
-    console.log("Editar blink:", blinkId);
+    try {
+      const token = localStorage.getItem("token");
+      const headers = { Authorization: `${token}` };
+      await axios.post(`https://blinklebacktestfirebase.vercel.app/blinks/${user}/${blinkId}`, { message: editedMessage }, { headers });
+      reloadBlinks(); // Recargar los blinks después de editar
+      setIsEditing(false); // Salir del modo de edición
+    } catch (error) {
+      console.error("Error al editar el blink:", error);
+    }
+  };
+
+  const handleChange = (event) => {
+    setEditedMessage(event.target.value);
+  };
+
+  const handleCancelEdit = () => {
+    setIsEditing(false); // Cancelar la edición y volver al mensaje original
+    setEditedMessage(message); // Restaurar el mensaje original
   };
 
   return (
@@ -30,15 +47,30 @@ const UserBlink = ({ user, message, blinkId, reloadBlinks }) => {
           <h4>{user}</h4>
         </div>
         <div className="editOptions">
-          <button onClick={handleEdit}>
-            <img src="src\assets\edit icon.svg" alt="Modify" />
-          </button>
-          <button onClick={handleDelete}>
-            <img src="src\assets\Remove.svg" alt="Erase" />
-          </button>
+          {isEditing ? (
+            <>
+              <button onClick={handleEdit}>Guardar</button>
+              <button onClick={handleCancelEdit}>Cancelar</button>
+            </>
+          ) : (
+            <>
+              <button onClick={() => setIsEditing(true)}>
+                <img src="src\assets\edit icon.svg" alt="Modify" />
+              </button>
+              <button onClick={handleDelete}>
+                <img src="src\assets\Remove.svg" alt="Erase" />
+              </button>
+            </>
+          )}
         </div>
       </div>
-      <div className="message_container">{message}</div>
+      <div className="message_container">
+        {isEditing ? (
+          <textarea value={editedMessage} onChange={handleChange} />
+        ) : (
+          <div>{message}</div>
+        )}
+      </div>
     </div>
   );
 };
@@ -51,4 +83,5 @@ UserBlink.propTypes = {
 };
 
 export default UserBlink;
+
 

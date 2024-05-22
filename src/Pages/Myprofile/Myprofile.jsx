@@ -53,9 +53,6 @@ const MyProfile = () => {
     navigate('/home');
   };
 
-  const reloadBlinks = () => {
-    fetchUserBlinks(); // Refresca los blinks después de una edición o eliminación
-  };
 
   return (
     <div className="MyProfile">
