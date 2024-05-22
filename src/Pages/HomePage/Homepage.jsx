@@ -1,7 +1,7 @@
 import Blink from "../../components/Blink/Blink";
 
 import "./HomePage.css";
-export const Homepage = () => {
+const Homepage = () => {
   return (
     <>
       <div className="HomePage">
@@ -21,3 +21,4 @@ export const Homepage = () => {
     </>
   );
 };
+export default Homepage

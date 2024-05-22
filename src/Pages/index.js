@@ -1,3 +1,6 @@
 export {default as MainPage} from './MainPage/MainPage'
 export {default as LoginPage} from './LoginPage/LoginPage'
 export {default as SignUpPage} from './SignUpPage/SignUpPage'
+export {default as Homepage} from './HomePage/Homepage'
+export {default as CreateBlink} from './CreateBlink/CreateBlink'
+export {default as Myprofile} from './Myprofile/Myprofile'

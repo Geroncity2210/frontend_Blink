@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Notification from '../../components/Notification/Notification';
 import './SignUpPage.css';
 
 const SignUpPage = () => {
@@ -8,13 +9,13 @@ const SignUpPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState(null);
-  const [error, setError] = useState(null);
+  const [messageType, setMessageType] = useState(null);
   const navigate = useNavigate();
 
   const handleSignUp = async () => {
     if (!username || !email || !password) {
-      setError('Por favor, completa todos los campos');
-      setMessage(null);
+      setMessage('Por favor, completa todos los campos');
+      setMessageType('error');
       return;
     }
     try {
@@ -24,18 +25,18 @@ const SignUpPage = () => {
         password,
       });
       setMessage(response.data.message);
-      setError(null);
+      setMessageType('success');
       setTimeout(() => {
         navigate('/login');
-      }, 2000); // Esperar 2 segundos antes de navegar
+      }, 1500); // Esperar 2 segundos antes de navegar
     } catch (error) {
       console.error('Error durante el registro:', error);
-      setMessage(null);
       if (error.response && error.response.data && error.response.data.message) {
-        setError(error.response.data.message);
+        setMessage(error.response.data.message);
       } else {
-        setError('Error durante el registro');
+        setMessage('Error durante el registro');
       }
+      setMessageType('error');
     }
   };
 
@@ -62,8 +63,7 @@ const SignUpPage = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button onClick={handleSignUp}>Registrarse</button>
-          {message && <div className="success-message">{message}</div>}
-          {error && <div className="error-message">{error}</div>}
+          <Notification message={message} type={messageType} setMessage={setMessage} setMessageType={setMessageType} />
         </div>
         <div className="logo-image"></div>
       </div>
@@ -72,6 +72,7 @@ const SignUpPage = () => {
 };
 
 export default SignUpPage;
+
 
 
 

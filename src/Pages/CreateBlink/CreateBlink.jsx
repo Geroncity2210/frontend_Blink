@@ -1,7 +1,7 @@
 import React from "react";
 import "./CreateBlink.css";
 
-export const CreateBlink = () => {
+const CreateBlink = () => {
   return (
     <>
       <div className="blinkCreator">
@@ -23,3 +23,4 @@ export const CreateBlink = () => {
     </>
   );
 };
+export default CreateBlink

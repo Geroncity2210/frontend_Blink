@@ -1,6 +1,6 @@
 import React from "react";
-import "./Blink.css";
 import PropTypes from "prop-types";
+import "./Blink.css";
 
 const Blink = ({ Username, message }) => {
   return (
@@ -14,9 +14,10 @@ const Blink = ({ Username, message }) => {
   );
 };
 
-Blink.PropTypes = {
-  User_name: PropTypes.string.isRequired,
-  blink_message: PropTypes.string.isRequired,
+Blink.propTypes = {
+  Username: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
 };
 
 export default Blink;
+

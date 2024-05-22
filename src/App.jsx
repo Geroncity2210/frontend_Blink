@@ -1,9 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { MainPage, LoginPage, SignUpPage } from "./Pages";
-import { Homepage } from "./Pages/HomePage/Homepage";
-import { CreateBlink } from "./Pages/CreateBlink/CreateBlink";
-import { Myprofile } from "./Pages/Myprofile/Myprofile";
+import { MainPage, LoginPage, SignUpPage, Homepage, CreateBlink, Myprofile } from "./Pages";
 
 function App() {
   return (

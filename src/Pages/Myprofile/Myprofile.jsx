@@ -2,7 +2,7 @@ import React from "react";
 import "./Myprofile.css";
 import UserBlink from "../../components/UserBlink/UserBlink";
 
-export const Myprofile = () => {
+const Myprofile = () => {
   return (
     <>
       <div className="ProfileViewer">
@@ -34,3 +34,5 @@ export const Myprofile = () => {
     </>
   );
 };
+
+export default Myprofile
