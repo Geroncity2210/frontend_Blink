@@ -20,21 +20,23 @@ const MyProfile = () => {
     fetchUserData();
   }, []);
 
-  useEffect(() => {
-    const fetchUserBlinks = async () => {
-      try {
-        const username = localStorage.getItem('username');
-        const token = localStorage.getItem('token');
-        const headers = { Authorization: `${token}` };
-        const response = await axios.get(`https://blinklebacktestfirebase.vercel.app/blinks/${username}`, { headers });
-        setUserBlinks(response.data);
-      } catch (error) {
-        console.error('Error al obtener los blinks del usuario:', error);
-        setError('Error al obtener los blinks del usuario. Inténtalo de nuevo más tarde.');
-      }
-    };
 
-    fetchUserBlinks();
+  const fetchUserBlinks = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const headers = { Authorization: `${token}` };
+      const response = await axios.get(`https://blinklebacktestfirebase.vercel.app/blinks/${username}`, { headers });
+      setUserBlinks(response.data);
+    } catch (error) {
+      console.error('Error al obtener los blinks del usuario:', error);
+      setError('Error al obtener los blinks del usuario. Inténtalo de nuevo más tarde.');
+    }
+  };
+
+  useEffect(() => {
+    if (username) {
+      fetchUserBlinks();
+    }
   }, [username]);
 
   const handleSignOut = () => {
@@ -49,6 +51,10 @@ const MyProfile = () => {
 
   const llevarAHome = () => {
     navigate('/home');
+  };
+
+  const reloadBlinks = () => {
+    fetchUserBlinks(); // Refresca los blinks después de una edición o eliminación
   };
 
   return (
@@ -80,7 +86,13 @@ const MyProfile = () => {
               setMessageType={null}
             />
             {userBlinks.map((blink) => (
-              <UserBlink key={blink.id} user={blink.username} message={blink.message} />
+              <UserBlink
+                key={blink.id}
+                user={blink.username}
+                message={blink.message}
+                blinkId={blink.id}
+                reloadBlinks={fetchUserBlinks}
+              />
             ))}
           </div>
         </div>
@@ -90,4 +102,5 @@ const MyProfile = () => {
 };
 
 export default MyProfile;
+
 
