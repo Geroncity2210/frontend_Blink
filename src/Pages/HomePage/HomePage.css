@@ -44,11 +44,13 @@ button {
 
 .Blinks_container {
   display: grid;
+  grid-template-columns: 1fr 1fr;
   overflow-y: auto; /* Agregar desbordamiento vertical */
-  max-height: calc(100vh - 200px); /* Altura máxima del contenedor para evitar que ocupe toda la página */
+  max-height: calc(
+    100vh - 200px
+  ); /* Altura máxima del contenedor para evitar que ocupe toda la página */
   margin: 1rem;
   gap: 1rem;
   width: auto;
   height: auto;
 }
-

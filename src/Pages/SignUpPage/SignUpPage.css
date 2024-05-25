@@ -1,0 +1,13 @@
+.signupInput {
+  padding: 0.5rem 1rem;
+  background-color: white;
+}
+.options {
+  display: flex;
+  flex-direction: column;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}

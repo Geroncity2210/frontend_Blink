@@ -1,60 +1,65 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import Blink from '../../components/Blink/Blink';
-import Notification from '../../components/Notification/Notification';
-import './SearchPage.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import Blink from "../../components/Blink/Blink";
+import Notification from "../../components/Notification/Notification";
+import "./SearchPage.css";
 
 const SearchPage = () => {
   const [blinks, setBlinks] = useState([]);
   const [message, setMessage] = useState(null);
   const [messageType, setMessageType] = useState(null);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
   // Función para manejar la búsqueda de blinks
   const handleSearch = async () => {
     if (!searchQuery) {
-      setMessage('Por favor ingresa una consulta de búsqueda');
-      setMessageType('error');
+      setMessage("Por favor ingresa una consulta de búsqueda");
+      setMessageType("error");
       return;
     }
 
-    const formattedQuery = searchQuery.startsWith('#') ? `%23${searchQuery.slice(1)}` : searchQuery;
+    const formattedQuery = searchQuery.startsWith("#")
+      ? `%23${searchQuery.slice(1)}`
+      : searchQuery;
 
     try {
-      const response = await axios.get(`https://blinklebacktestfirebase.vercel.app/search?q=${formattedQuery}`, {
-        headers: {
-          Authorization: `${localStorage.getItem('token')}`,
-        },
-      });
+      const response = await axios.get(
+        `https://blinklebacktestfirebase.vercel.app/search?q=${formattedQuery}`,
+        {
+          headers: {
+            Authorization: `${localStorage.getItem("token")}`,
+          },
+        }
+      );
       setBlinks(response.data);
       setMessage(null);
       setMessageType(null);
     } catch (error) {
-      console.error('Error al buscar blinks:', error);
-      setMessage('Error al buscar los blinks');
-      setMessageType('error');
+      console.error("Error al buscar blinks:", error);
+      setMessage("Error al buscar los blinks");
+      setMessageType("error");
     }
   };
 
   // Función para manejar el clic en el botón de Cerrar sesión
   const handleSignOut = () => {
-    localStorage.removeItem('username');
-    localStorage.removeItem('token');
-    navigate('/');
+    localStorage.removeItem("username");
+    localStorage.removeItem("token");
+    navigate("/");
   };
 
   const llevarACreate = () => {
-    navigate('/create');
+    navigate("/create");
   };
 
   const llevarAProfile = () => {
-    navigate('/profile');
+    navigate("/profile");
   };
 
   const llevarAHome = () => {
-    navigate('/home');
+    navigate("/home");
   };
 
   return (
@@ -67,18 +72,29 @@ const SearchPage = () => {
             placeholder="Buscar..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            className="textInput"
           />
-          <button className="btn_searchFuncional" onClick={handleSearch}>Buscar</button>
-          <button className="btn_HomeFeed" onClick={llevarAHome}>Home</button>
-          <button className="btn_Profile" onClick={llevarAProfile}>Profile</button>
-          <button id="btn_SignOut" onClick={handleSignOut}>Cerrar sesión</button>
+          <button className="btn_searchFuncional btn" onClick={handleSearch}>
+            Buscar
+          </button>
+          <button className="btn_HomeFeed btn" onClick={llevarAHome}>
+            Home
+          </button>
+          <button className="btn_Profile btn" onClick={llevarAProfile}>
+            Profile
+          </button>
+          <button className="btn_SignOut btn" onClick={handleSignOut}>
+            Sign out
+          </button>
         </div>
       </div>
       <div className="Nav_create">
-        <h2 id="feed-title">Resultados de la búsqueda</h2>
-        <button id="btn_create" onClick={llevarACreate}>Create Blink</button>
+        <h2 id="feed-title">Results</h2>
+        <button id="btn_create" onClick={llevarACreate}>
+          Create Blink
+        </button>
       </div>
-      <div className="Blinks_container">
+      <div className="Search_Blinks_container">
         <Notification
           message={message}
           type={messageType}
@@ -86,7 +102,11 @@ const SearchPage = () => {
           setMessageType={setMessageType}
         />
         {blinks.map((blink, index) => (
-          <Blink key={index} Username={blink.username} message={blink.message} />
+          <Blink
+            key={index}
+            Username={blink.username}
+            message={blink.message}
+          />
         ))}
       </div>
     </div>
@@ -94,4 +114,3 @@ const SearchPage = () => {
 };
 
 export default SearchPage;
-
