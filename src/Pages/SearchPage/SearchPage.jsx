@@ -1,4 +1,4 @@
-import React, { useState ,useContext } from "react";
+import React, { useState, useContext } from "react";
 import { AuthContext } from "../../context/context";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -40,7 +40,11 @@ const SearchPage = () => {
       setMessageType(null);
     } catch (error) {
       console.error("Error al buscar blinks:", error);
-      setMessage("Error al buscar los blinks");
+      if (error.response && error.response.data && error.response.data.message) {
+        setMessage(error.response.data.message);
+      } else {
+        setMessage("Error al buscar los blinks");
+      }
       setMessageType("error");
     }
   };
@@ -117,3 +121,4 @@ const SearchPage = () => {
 };
 
 export default SearchPage;
+
