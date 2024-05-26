@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { AuthContext } from "../../context/context";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import UserBlink from "../../components/UserBlink/UserBlink";
@@ -9,6 +10,7 @@ const MyProfile = () => {
   const [userBlinks, setUserBlinks] = useState([]);
   const [error, setError] = useState(null);
   const [username, setUsername] = useState("");
+  const { signOut } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -46,6 +48,7 @@ const MyProfile = () => {
   const handleSignOut = () => {
     localStorage.removeItem("username");
     localStorage.removeItem("token");
+    signOut();
     navigate("/");
   };
 

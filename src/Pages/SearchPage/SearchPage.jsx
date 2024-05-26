@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../context/context";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Blink from "../../components/Blink/Blink";
@@ -10,6 +11,7 @@ const SearchPage = () => {
   const [message, setMessage] = useState(null);
   const [messageType, setMessageType] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const { signOut } = useContext(AuthContext);
   const navigate = useNavigate();
 
   // Función para manejar la búsqueda de blinks
@@ -38,7 +40,11 @@ const SearchPage = () => {
       setMessageType(null);
     } catch (error) {
       console.error("Error al buscar blinks:", error);
-      setMessage("Error al buscar los blinks");
+      if (error.response && error.response.data && error.response.data.message) {
+        setMessage(error.response.data.message);
+      } else {
+        setMessage("Error al buscar los blinks");
+      }
       setMessageType("error");
     }
   };
@@ -47,6 +53,7 @@ const SearchPage = () => {
   const handleSignOut = () => {
     localStorage.removeItem("username");
     localStorage.removeItem("token");
+    signOut();
     navigate("/");
   };
 
@@ -118,3 +125,4 @@ const SearchPage = () => {
 };
 
 export default SearchPage;
+
