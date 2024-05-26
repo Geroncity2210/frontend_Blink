@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../context/context";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Notification from '../../components/Notification/Notification';
@@ -8,6 +9,7 @@ const CreateBlink = () => {
   const [blinkContent, setBlinkContent] = useState('');
   const [notificationMessage, setNotificationMessage] = useState(null);
   const [notificationType, setNotificationType] = useState(null);
+  const { signOut } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleBlinkCreation = async () => {
@@ -57,6 +59,7 @@ const CreateBlink = () => {
    const handleSignOut = () => {
     localStorage.removeItem('username');
     localStorage.removeItem('token');
+    signOut();
     navigate('/');
   };
 

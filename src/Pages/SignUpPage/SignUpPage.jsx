@@ -31,7 +31,7 @@ const SignUpPage = () => {
       setMessageType("success");
       setTimeout(() => {
         navigate("/login");
-      }, 1500); // Esperar 2 segundos antes de navegar
+      }, 1500); // Esperar 1.5 segundos antes de navegar
     } catch (error) {
       console.error("Error durante el registro:", error);
       if (

@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Notification from "../../components/Notification/Notification";
+import { AuthContext } from "../../context/context";
 import "./LoginPage.css";
 
 const LoginPage = () => {
@@ -10,6 +11,7 @@ const LoginPage = () => {
   const [message, setMessage] = useState(null);
   const [messageType, setMessageType] = useState(null);
   const navigate = useNavigate();
+  const { signIn } = useContext(AuthContext);
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -33,8 +35,10 @@ const LoginPage = () => {
       localStorage.setItem("username", response.data.username);
 
       setTimeout(() => {
+        signIn();
         navigate("/home");
-      }, 1500); // Esperar 2 segundos antes de navegar
+      }, 1500); // Esperar 1.5 segundos antes de navegar
+
     } catch (error) {
       console.error("Error durante el inicio de sesión:", error);
       if (
