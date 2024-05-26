@@ -10,8 +10,8 @@
   border-radius: 30px;
   display: flex;
   flex-direction: column;
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: fit-content;
   padding: 2rem;
   color: white;
   gap: 1.2rem;

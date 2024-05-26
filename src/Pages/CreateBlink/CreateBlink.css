@@ -16,13 +16,19 @@
   padding: 1rem;
 }
 .Navbar {
-  width: 100%;
   display: flex;
+  width: auto;
+  flex-direction: column;
   justify-content: space-between;
+  gap: 0.8rem;
   padding-bottom: 0.6rem;
   align-items: center;
   color: white;
   border-bottom: 2px solid white;
+}
+.Opbuttons {
+  display: flex;
+  gap: 0.2rem;
 }
 .btn_SignOut {
   background-color: #436221;
@@ -52,7 +58,7 @@
     background-color: #659231;
   }
 }
-input {
+.blinkInput {
   font-family: sans-serif;
   font-size: 18px;
   outline: none;
@@ -70,6 +76,7 @@ input {
 @media screen and (min-width: 1024px) {
   .Navbar {
     font-size: 22px;
+    flex-direction: row;
   }
   h2 {
     font-size: 26px;
@@ -78,7 +85,7 @@ input {
     display: flex;
     gap: 2rem;
   }
-  input {
+  .blinkInput {
     font-size: 16px;
     border-radius: 20px;
     padding: 0.5rem 0 10rem 0.5rem;

@@ -64,28 +64,32 @@ const SearchPage = () => {
 
   return (
     <div className="SearchPage">
-      <div className="Navbar">
+      <div className="SearchNavbar">
         <h1>Blinke</h1>
         <div className="buttons">
-          <input
-            type="text"
-            placeholder="Buscar..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="textInput"
-          />
-          <button className="btn_searchFuncional btn" onClick={handleSearch}>
-            Buscar
-          </button>
-          <button className="btn_HomeFeed btn" onClick={llevarAHome}>
-            Home
-          </button>
-          <button className="btn_Profile btn" onClick={llevarAProfile}>
-            Profile
-          </button>
-          <button className="btn_SignOut btn" onClick={handleSignOut}>
-            Sign out
-          </button>
+          <div className="searchAssets">
+            <input
+              type="text"
+              placeholder="Buscar..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="textInput"
+            />
+            <button className="btn_searchFuncional btn" onClick={handleSearch}>
+              Buscar
+            </button>
+          </div>
+          <div className="Search_Buttons">
+            <button className="btn_HomeFeed btn" onClick={llevarAHome}>
+              Home
+            </button>
+            <button className="btn_Profile btn" onClick={llevarAProfile}>
+              Profile
+            </button>
+            <button className="btn_SignOut btn" onClick={handleSignOut}>
+              Sign out
+            </button>
+          </div>
         </div>
       </div>
       <div className="Nav_create">
