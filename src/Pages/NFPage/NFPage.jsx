@@ -3,16 +3,16 @@ import "./NFPage.css";
 export const NFPage = () => {
   return (
     <>
-      <body>
+      <div className="Err_Container">
         <div className="err">
-          <h2>Blinke</h2>
+          <h2 className="titulo">Blinke</h2>
           <div className="error_message">
-            <h1>404</h1>
-            <h2>Error</h2>
-            <p>Ehh...Where u goin'?</p>
+            <h1 id="code">404</h1>
+            <h2 className="titulo">Error</h2>
+            <p id="message">Ehh...Where u goin'?</p>
           </div>
         </div>
-      </body>
+      </div>
     </>
   );
 };
