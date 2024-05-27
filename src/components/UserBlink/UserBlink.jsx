@@ -11,7 +11,10 @@ const UserBlink = ({ user, message, blinkId, reloadBlinks }) => {
     try {
       const token = localStorage.getItem("token");
       const headers = { Authorization: `${token}` };
-      await axios.delete(`https://blinklebacktestfirebase.vercel.app/blinks/${user}/${blinkId}`, { headers });
+      await axios.delete(
+        `https://blinklebacktestfirebase.vercel.app/blinks/${user}/${blinkId}`,
+        { headers }
+      );
       reloadBlinks(); // Recargar los blinks después de borrar
     } catch (error) {
       console.error("Error al borrar el blink:", error);
@@ -22,7 +25,11 @@ const UserBlink = ({ user, message, blinkId, reloadBlinks }) => {
     try {
       const token = localStorage.getItem("token");
       const headers = { Authorization: `${token}` };
-      await axios.post(`https://blinklebacktestfirebase.vercel.app/blinks/${user}/${blinkId}`, { message: editedMessage }, { headers });
+      await axios.post(
+        `https://blinklebacktestfirebase.vercel.app/blinks/${user}/${blinkId}`,
+        { message: editedMessage },
+        { headers }
+      );
       reloadBlinks(); // Recargar los blinks después de editar
       setIsEditing(false); // Salir del modo de edición
     } catch (error) {
@@ -55,10 +62,10 @@ const UserBlink = ({ user, message, blinkId, reloadBlinks }) => {
           ) : (
             <>
               <button onClick={() => setIsEditing(true)}>
-                <img src="src\assets\edit icon.svg" alt="Modify" />
+                <img src="./src/assets/edit.svg" alt="Modify" />
               </button>
               <button onClick={handleDelete}>
-                <img src="src\assets\Remove.svg" alt="Erase" />
+                <img src="./src/assets/Remove.svg" alt="Erase" />
               </button>
             </>
           )}
@@ -83,5 +90,3 @@ UserBlink.propTypes = {
 };
 
 export default UserBlink;
-
-
