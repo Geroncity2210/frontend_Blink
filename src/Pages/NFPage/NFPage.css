@@ -4,7 +4,7 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
-body {
+.Err_Container {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -14,13 +14,13 @@ body {
   background-color: #273035;
   color: white;
 }
-h1 {
+#code {
   font-size: 128px;
 }
-h2 {
+.titulo {
   font-size: 47px;
 }
-p {
+#message {
   font-size: 30px;
 }
 .err {
