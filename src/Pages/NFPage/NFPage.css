@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #273035;
+  color: white;
+}
+h1 {
+  font-size: 128px;
+}
+h2 {
+  font-size: 47px;
+}
+p {
+  font-size: 30px;
+}
+.err {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.error_message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
