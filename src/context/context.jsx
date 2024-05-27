@@ -28,6 +28,8 @@ export const AuthIsNotSignedIn = ({ children }) => {
 const AuthProvider = ({ children }) => {
   const [authStatus, setAuthStatus] = useState(AuthStatus.Loading);
 
+  
+
   useEffect(() => {
     async function getWhoAmI() {
       const res = await QuienSoy();
@@ -39,6 +41,22 @@ const AuthProvider = ({ children }) => {
     }
     getWhoAmI().then();
   }, [setAuthStatus]);
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const token = localStorage.getItem("token");
+      const username = localStorage.getItem("username");
+      if (!token || !username) {
+        setAuthStatus(AuthStatus.SignedOut);
+      }
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+        window.removeEventListener("storage", handleStorageChange);
+      };
+    }, []);
 
   function signIn() {
     setAuthStatus(AuthStatus.SignedIn);
