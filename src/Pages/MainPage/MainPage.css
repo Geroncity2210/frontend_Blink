@@ -23,10 +23,15 @@
 .logo-image {
   width: 10rem;
   height: 10rem;
-  background-color: white;
+  background-color: rgb(25, 41, 67);
   border-radius: 50%;
 }
 
+#Logo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
 button {
   font-family: sans-serif;
   background-color: #088dcb;

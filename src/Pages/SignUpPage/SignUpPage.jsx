@@ -57,7 +57,9 @@ const SignUpPage = () => {
   return (
     <div className="background">
       <div className="Main">
-        <div className="logo-image"></div>
+        <div className="logo-image">
+          <img src="./src/assets/logo.jpeg" alt="Logo" id="Logo" />
+        </div>
         <div className="options">
           <input
             type="text"

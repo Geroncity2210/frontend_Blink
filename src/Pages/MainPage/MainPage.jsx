@@ -1,18 +1,20 @@
 import React from "react";
 import "./MainPage.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 const MainPage = () => {
   return (
     <div className="background">
       <div className="Main">
         <div className="options">
-          <div className="logo-image"></div>
+          <div className="logo-image">
+            <img src="./src/assets/logo.jpeg" alt="Logo" id="Logo" />
+          </div>
           <Link to="/login">
-          <button>Iniciar Sesión</button>
+            <button>Iniciar Sesión</button>
           </Link>
           <Link to="/signin">
-          <button>Registrarte</button>
-          </Link>      
+            <button>Registrarte</button>
+          </Link>
         </div>
       </div>
     </div>

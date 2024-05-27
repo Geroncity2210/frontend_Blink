@@ -38,7 +38,6 @@ const LoginPage = () => {
         signIn();
         navigate("/home");
       }, 1500); // Esperar 1.5 segundos antes de navegar
-
     } catch (error) {
       console.error("Error durante el inicio de sesión:", error);
       if (
@@ -57,7 +56,9 @@ const LoginPage = () => {
   return (
     <div className="background">
       <div className="Main">
-        <div className="logo-image"></div>
+        <div className="logo-image">
+          <img src="./src/assets/logo.jpeg" alt="Logo" id="Logo" />
+        </div>
         <div className="options">
           <input
             type="email"
