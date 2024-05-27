@@ -19,6 +19,7 @@ import AuthProvider, {
   AuthIsSignedIn,
 } from "./context/context";
 import { NFPage } from "./Pages/NFPage/NFPage";
+import HomePage from "./Pages/HomePage/Homepage";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
       <AuthIsSignedIn>
         <Router>
           <Routes>
+          <Route path="/" element={<HomePage />} />
             <Route path="/home" element={<Homepage />} />
             <Route path="/create" element={<CreateBlink />} />
             <Route path="/profile" element={<Myprofile />} />
@@ -38,9 +40,9 @@ function App() {
       <AuthIsNotSignedIn>
         <Router>
           <Routes>
-            <Route path={"/"} element={<MainPage />} />
+            <Route path="/" element={<MainPage />} />
             <Route path="/signin" element={<SignUpPage />} />
-            <Route path={"/login"} element={<LoginPage />} />
+            <Route path="/login" element={<LoginPage />} />
             <Route path="*" element={<Navigate replace to={"/"} />} />
             <Route path="/404" element={<NFPage />} />
           </Routes>
