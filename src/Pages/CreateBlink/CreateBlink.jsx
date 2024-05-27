@@ -87,7 +87,7 @@ const CreateBlink = () => {
     <>
       <div className="blinkCreator">
         <div className="Navbar">
-          <h1>Blinke</h1>
+          <h1>Blinkle</h1>
           <div className="Opbuttons">
             <button className="btn_search" onClick={llevarASearch}>
               Search

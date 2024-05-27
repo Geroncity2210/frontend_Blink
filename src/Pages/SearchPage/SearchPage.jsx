@@ -72,7 +72,7 @@ const SearchPage = () => {
   return (
     <div className="SearchPage">
       <div className="SearchNavbar">
-        <h1>Blinke</h1>
+        <h1>Blinkle</h1>
         <div className="buttons">
           <div className="searchAssets">
             <input
@@ -94,7 +94,7 @@ const SearchPage = () => {
               Profile
             </button>
             <button className="btn_SignOut btn" onClick={handleSignOut}>
-              Sign out
+              Cerrar sesión
             </button>
           </div>
         </div>
