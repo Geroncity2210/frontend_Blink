@@ -18,6 +18,13 @@ const SignUpPage = () => {
       setMessageType("error");
       return;
     }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setMessage("Por favor, ingresa un correo electrónico válido");
+      setMessageType("error");
+      return;
+    }
     try {
       const response = await axios.post(
         "https://blinklebacktestfirebase.vercel.app/sign",
